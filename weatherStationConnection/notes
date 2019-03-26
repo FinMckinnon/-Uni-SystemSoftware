@@ -1,0 +1,10 @@
+Server:
+    - Tell between Station and Farmer
+        - Send to different protocols:
+            - Weather Station:
+                -Connect and automatically register ID
+                -Upload Data {GPS, temp, humidity}
+            - User:
+                - Password login
+                - Allow client to obtain info about field {Area, crop}
+                - Obtain and download weather station data (Sensors)
