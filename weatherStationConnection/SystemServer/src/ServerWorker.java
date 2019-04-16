@@ -3,7 +3,6 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.HashSet;
 import java.util.List;
 
 public class ServerWorker extends Thread
@@ -13,10 +12,9 @@ public class ServerWorker extends Thread
     private String login = null;
     private String publicName;
     private OutputStream outputStream;
-    private HashSet<String> topicSet = new HashSet<>();
     private BufferedReader reader;
 
-    public ServerWorker(Server server, Socket clientSocket) throws IOException // Instantiates a server worker from a given server and socket
+    public ServerWorker(Server server, Socket clientSocket) // Instantiates a server worker from a given server and socket
     {
         this.server = server;
         this.clientSocket = clientSocket;
@@ -57,17 +55,10 @@ public class ServerWorker extends Thread
                 {
                     handleLogIn(outputStream, tokens);
                 }
-                else if("msg".equalsIgnoreCase(cmd))
+                else if("msg".equalsIgnoreCase(cmd)) // Used as a way to demonstrate messaging all online users #########################################
                 {
                     String[] tokensMsg = StringUtils.split(line, null, 3);
                     handleUserMessage(tokensMsg);
-                }
-                else if("join".equalsIgnoreCase(cmd))
-                {
-                    handleJoin(tokens);
-                }
-                else if("leave".equalsIgnoreCase(cmd)){
-                    handleLeave(tokens);
                 }
                 else if("createaccount".equalsIgnoreCase(cmd)){
                     createAccount();
@@ -78,6 +69,9 @@ public class ServerWorker extends Thread
                 else if("info".equalsIgnoreCase(cmd)){
                     handleInfo(tokens);
                 }
+                else if("help".equalsIgnoreCase(cmd)){
+                    handleHelp();
+                }
                 else
                 {
                     String msg = "unknown " + cmd + "\n\r";
@@ -86,6 +80,23 @@ public class ServerWorker extends Thread
             }
         }
         clientSocket.close();
+    }
+
+    private void handleHelp() throws IOException {
+        String msg;
+        msg = "========== Help ==========\n\r" +
+                "Commands:\n\r" +
+                "Login: [login 'Username' 'Password']\n\r" +
+                "# Allows a user to log in if credentials are correct.\n\n\r" +
+                "Downland Station Data: [download 'Station Name']\n\r" +
+                "#Download Station Data to your local Downloads folder.\n\n\r" +
+                "Get Station Information: [info 'Station Name']\n\r" +
+                "#Get crop and field area data about a Station.\n\n\r" +
+                "Create Account: [createaccount]\n\r" +
+                "#Create a new user or server account.\n\n\r" +
+                "Exit Application: [logoff] or [quit]\n\n\r" ;
+
+        outputStream.write(msg.getBytes());
     }
 
     private void handleInfo(String[] tokens) throws IOException {
@@ -152,66 +163,16 @@ public class ServerWorker extends Thread
         }
     }
 
-    private void handleLeave(String[] tokens) throws IOException {
-        if(tokens.length == 2){
-            String msg;
-            String topic = tokens[1];
-            if(isMemberOfTopic(topic)){
-                topicSet.remove(topic);
-                msg = "You have left topic: "+topic+"\n\r";
-                outputStream.write(msg.getBytes());
-            }
-        }
-    }
-
-    private void handleJoin(String[] tokens) throws IOException {
-        if(tokens.length == 2)
-        {
-            String topic = tokens[1];
-            String msg;
-            if(topic.charAt(0) == '#'){
-                if(!isMemberOfTopic(topic)){
-                    topicSet.add(topic);
-                    msg = "You have joined topic: "+topic+"\n\r";
-                    outputStream.write(msg.getBytes());
-                }
-                else{
-                    msg = "You are already part of this topic\n\r";
-                    outputStream.write(msg.getBytes());
-                }
-            }
-            else{
-                msg = "Invalid topic format - please use format [#topic]\n\r";
-                outputStream.write(msg.getBytes());
-            }
-        }
-    }
-
-    public boolean isMemberOfTopic(String topic){
-        return topicSet.contains(topic);
-    }
-
     // "msg" "user" "body"
-    // "msg" "#topic" "body"
     private void handleUserMessage(String[] tokens) throws IOException {
         String sendTo = tokens[1];
         String body = tokens[2];
 
-        boolean isTopic = sendTo.charAt(0) == '#';
-
         List<ServerWorker> workerList = server.getWorkersList();
         for(ServerWorker worker : workerList) {
-            if (isTopic) {
-                if(worker.isMemberOfTopic(sendTo)) {
-                    String outMsg = "msg " + sendTo + " " + body;
-                    worker.send(outMsg);
-                }
-            }
-            else {
-                if (sendTo.equalsIgnoreCase(worker.getLogIn())) {
-                    String outMsg = "msg " + login + " " + body;
-                    worker.send(outMsg);
-                }
+            if (sendTo.equalsIgnoreCase(worker.getLogIn())) {
+                String outMsg = "msg " + login + " " + body;
+                worker.send(outMsg);
             }
         }
 
@@ -254,13 +215,13 @@ public class ServerWorker extends Thread
                 this.login = loginID;
                 this.publicName = username.toLowerCase();
                 if(login.charAt(0) == 's'){
-                    System.out.println("Client: Station "+login+" has logged in");
+                    System.out.println("Station: "+login+" has logged in");
                     StationClient stationClient = new StationClient(this);
                     stationClient.run();
                 }
                 else {
-
                     // Show current user all other online users
+                    System.out.println("Client: " + login + " has logged in");
                     List<ServerWorker> workerList = server.getWorkersList();
                     outputStream.write("OnlineStations: \n\r".getBytes());
                     for (ServerWorker worker : workerList) {
@@ -270,7 +231,6 @@ public class ServerWorker extends Thread
                         }
                     }
                 }
-
             }
             else
             {

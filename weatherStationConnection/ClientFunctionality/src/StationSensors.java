@@ -9,7 +9,6 @@ public class StationSensors {
     private final StationClient stationClient; // Take in station[]
     private final int[] sensorIDs;
     public Random random = new Random();
-    private OutputStream outputStream;
 
     public StationSensors(StationClient stationClient){
         this.stationClient = stationClient;
@@ -43,7 +42,7 @@ public class StationSensors {
 
             writeDataToFile(fileName, data);
 
-            Thread.sleep(1000);
+            Thread.sleep(60000);
         }
     }
 
