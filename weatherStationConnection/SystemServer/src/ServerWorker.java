@@ -14,7 +14,7 @@ public class ServerWorker extends Thread
     private OutputStream outputStream;
     private BufferedReader reader;
 
-    public ServerWorker(Server server, Socket clientSocket) // Instantiates a server worker from a given server and socket
+    public ServerWorker(Server server, Socket clientSocket) throws IOException // Instantiates a server worker from a given server and socket
     {
         this.server = server;
         this.clientSocket = clientSocket;
