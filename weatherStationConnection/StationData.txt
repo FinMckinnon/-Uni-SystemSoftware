@@ -1,0 +1,2 @@
+s1,Station1,50.0,beans
+s2,stationtest,500,banana
