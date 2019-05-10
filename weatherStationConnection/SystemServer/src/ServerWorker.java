@@ -90,6 +90,11 @@ public class ServerWorker extends Thread
                     else if("stations".equalsIgnoreCase(cmd)){
                         showOnlineStations();
                     }
+                    else
+                    {
+                        String msg = "Unknown command:  " + cmd + "\n\r";
+                        outputStream.write(msg.getBytes());
+                    }
                 }
                 else
                 {
@@ -132,12 +137,17 @@ public class ServerWorker extends Thread
             String field = tokens[2];
             String value = tokens[3];
 
+            boolean success = false;
+
             List<StationClient> stationList = server.getStationList();
             for(StationClient station : stationList){
                 if(station.stationName.equalsIgnoreCase(stationName)){
-                    station.updateFields(field, value);
+                    if(station.updateFields(field, value)) success = true;
                 }
             }
+
+            String status = (success) ? "Successful" : "Unsuccessful";
+            outputStream.write(("Update status: "+status+"\n\r").getBytes());
         }
     }
 
@@ -151,34 +161,15 @@ public class ServerWorker extends Thread
     }
 
     private void handleHelp() throws IOException {
-        String msg;
-        msg = "========== Help ==========\n\r" +
-                "Commands: \n\r" +
-                "Login: [login 'Username' 'Password']\n\r" +
-                "# Allows a user to log in if credentials are correct.\n\n\r" +
-                "* View active users: [users]\n\r" +
-                "#Show a list of all current active users.\n\n\r" +
-                "* View all active Stations : [stations]\n\r" +
-                "#Show a list of all active Stations.\n\n\r" +
-                "Activate Station : [start 'Station Name']\n\r" +
-                "#Activate a station and start gathering data.\n\n\r" +
-                "Deactivate Station : [stop 'Station Name']\n\r" +
-                "#Deactivate a station and stop gathering data.\n\n\r" +
-                "* Update Station Info: [update 'Station Name' 'Field To Change' 'New Value']\n\r" +
-                "#Update Station info to a specified input.\n\n\r" +
-                "* View recorded Station Data: [refresh 'Station Name']\n\r" +
-                "#View the most recent Station Data recorded.\n\n\r" +
-                "* Downland Station Data: [download 'Station Name']\n\r" +
-                "#Download Station Data to your local Downloads folder.\n\n\r" +
-                "* Get Station Information: [info 'Station Name']\n\r" +
-                "#Get crop and field area data about a Station.\n\n\r" +
-                "Create Account: [createaccount]\n\r" +
-                "#Create a new user or station.\n\n\r" +
-                "Clear screen: [clear]\n\r" +
-                "#Clears the screen of all data.\n\n\r" +
-                "Exit Application: [logoff] or [quit]\n\n\r" +
-                "All commands with an '*' character require a valid login.\n\n\r" ;
-        outputStream.write(msg.getBytes());
+        String fileName =  "guide.txt";
+        FileReader fileReader = new FileReader(fileName);
+        BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+        String line;
+        while((line = bufferedReader.readLine()) != null){
+            outputStream.write((line+"\n\r").getBytes());
+        }
+        bufferedReader.close();
     }
 
     private void handleInfo(String[] tokens) throws IOException {
@@ -189,20 +180,24 @@ public class ServerWorker extends Thread
         String stationID = pullStationID(station);
 
         String currentLine;
+        Boolean found = false;
 
         while((currentLine = reader.readLine()) != null) {
             if (currentLine.length() > 0) {
                 String[] dataTokens = StringUtils.split(currentLine, ",");
                 if (stationID.equalsIgnoreCase(dataTokens[0])) {
-                    fieldArea = dataTokens[1];
-                    fieldCrop = dataTokens[2];
+                    fieldArea = dataTokens[2];
+                    fieldCrop = dataTokens[3];
+                    found = true;
                     break;
                 }
             }
         }
         reader.close();
 
-        String infoMsg = station+" info: \n"+"Area: "+fieldArea+"\n"+"Crop: "+fieldCrop+"\n\r";
+        String infoMsg = (found)?
+                (station+" info: \n\r"+"Area: "+fieldArea+"m^2\n\r"+"Crop: "+fieldCrop+"\n\r") :
+                "Station " + station + " info could not be retrieved\n\r";
         outputStream.write(infoMsg.getBytes());
     }
 
@@ -237,7 +232,8 @@ public class ServerWorker extends Thread
                    success = station.downloadData();
                 }
             }
-            outputStream.write((msg + success + "\n\r").getBytes());
+            String status = (success) ? "Successful" : "Unsuccessful";
+            outputStream.write((msg + status + "\n\r").getBytes());
         }
     }
 

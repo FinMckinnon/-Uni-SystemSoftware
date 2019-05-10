@@ -1,0 +1,39 @@
+# # # # # # # # # # # Help # # # # # # # # # # #
+Commands: 
+
+Login: [login 'Username' 'Password']
+# Allows a user to log in if credentials are correct.
+
+* View active users: [users]
+#Show a list of all current active users.
+
+* View all active Stations : [stations]
+#Show a list of all active Stations.
+
+Activate Station : [start 'Station Name']
+Activate a station and start gathering data.
+
+Deactivate Station : [stop 'Station Name']
+#Deactivate a station and stop gathering data.
+
+* Update Station Info: [update 'Station Name' 'Field To Change' 'New Value']
+#Update Station info to a specified input.
+
+* View recorded Station Data: [refresh 'Station Name']
+#View the most recent Station Data recorded.
+
+* Downland Station Data: [download 'Station Name']
+#Download Station Data to your local Downloads folder.
+
+* Get Station Information: [info 'Station Name']
+#Get crop and field area data about a Station.
+
+Create Account: [createaccount]
+#Create a new user or station.
+
+Clear screen: [clear]
+#Clears the screen of all data.
+
+Exit Application: [logoff] or [quit]
+
+All commands with an '*' character require a valid login.

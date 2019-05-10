@@ -2,8 +2,12 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.*;
+import java.sql.Array;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 
 public class StationClient extends Thread {
 
@@ -53,11 +57,15 @@ public class StationClient extends Thread {
             return false;
         }
 
-        File inputFile = new File("StationData.txt");
-        File tempFile = new File("StationDataTemp.txt");
+        String path = System.getProperty("user.dir") + "/";
+
+        File inputFile = new File(path+"StationData.txt");
+        File tempFile = new File(path+"StationDataTemp.txt");
+
+        ArrayList<String> fileData = new ArrayList<>();
 
         BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-        BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
+        //BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
         String currentLine;
 
@@ -65,17 +73,27 @@ public class StationClient extends Thread {
             if (currentLine.length() > 0) {
                 String[] tokens = StringUtils.split(currentLine, ",");
                 if (!login.equalsIgnoreCase(tokens[0])) {
-                    writer.write(currentLine + System.getProperty("line.separator"));
+                    //writer.write(currentLine + System.getProperty("line.separator"));
+                    fileData.add(currentLine);
                 }
             }
         }
-        writer.write(login + "," + stationName + "," + landArea + "," + fieldCrop + System.getProperty("line.separator"));
+
+        BufferedWriter clearWriter = new BufferedWriter(new FileWriter(inputFile, false));
+        clearWriter.write(login + "," + stationName + "," + landArea + "," + fieldCrop + System.getProperty("line.separator"));
+        clearWriter.close();
+
+        String line;
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(inputFile, true));
+        for(int i = 0; i < fileData.size(); i++ ){
+            if(i == fileData.size()-1)line = fileData.get(i);
+            else line = fileData.get(i) +System.getProperty("line.separator");
+            writer.append(line);
+        }
 
         writer.close();
         reader.close();
-
-        inputFile.delete();
-        tempFile.renameTo(inputFile);
 
         System.out.println("Update on "+stationName+" successful");
         return true;
