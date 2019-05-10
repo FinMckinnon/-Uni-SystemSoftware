@@ -74,7 +74,7 @@ public class ServerWorker extends Thread
                 else if("clear".equalsIgnoreCase(cmd)){
                     moveScreen();
                 }
-                else if(login != null){
+                else if(login != null){ // Exclusive to logged in users
                     if("update".equalsIgnoreCase(cmd)){
                         handleUpdate(tokens);
                     }
@@ -106,6 +106,7 @@ public class ServerWorker extends Thread
         clientSocket.close();
     }
 
+    // Checks if given station exists; If so, displays the data from the database file
     private void handleRefresh(String[] tokens) throws IOException {
         if(tokens.length == 2){
             String stationName = tokens[1];
@@ -131,6 +132,7 @@ public class ServerWorker extends Thread
         }
     }
 
+    // Attempts to update station info in database file and current session of station
     private void handleUpdate(String[] tokens) throws IOException {
         if(tokens.length == 4){
             String stationName = tokens[1];
@@ -151,6 +153,7 @@ public class ServerWorker extends Thread
         }
     }
 
+    // Displays an entry message on startup of the application
     private void entryMessage() throws IOException {
         String msg = "+ - - - - - - - - - - - - - +\n\r" +
                      "|   Weather Station System  |\n\r" +
@@ -160,6 +163,7 @@ public class ServerWorker extends Thread
         outputStream.write(msg.getBytes());
     }
 
+    // Pulls data from a help text file for users to see functionality of the application
     private void handleHelp() throws IOException {
         String fileName =  "guide.txt";
         FileReader fileReader = new FileReader(fileName);
@@ -172,6 +176,7 @@ public class ServerWorker extends Thread
         bufferedReader.close();
     }
 
+    // Displays a specified stations information (Field area and Crop) if it exists
     private void handleInfo(String[] tokens) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("StationData.txt"));
         String fieldArea = "N/A";
@@ -201,8 +206,8 @@ public class ServerWorker extends Thread
         outputStream.write(infoMsg.getBytes());
     }
 
+    // Finds a specified stations ID
     private String pullStationID(String station) throws IOException {
-
         BufferedReader reader = new BufferedReader(new FileReader("StationData.txt"));
 
         String currentLine;
@@ -218,7 +223,7 @@ public class ServerWorker extends Thread
         return null;
     }
 
-
+    // Attempts to downland specified database file to users machine
     private void handleDownload(String[] tokens) throws IOException {
         if(tokens.length == 2) {
 
@@ -237,59 +242,37 @@ public class ServerWorker extends Thread
         }
     }
 
-    // "msg" "user" "body"
-    private void handleUserMessage(String[] tokens) throws IOException {
-        String sendTo = tokens[1];
-        String body = tokens[2];
-
-        List<ServerWorker> workerList = server.getWorkersList();
-        for(ServerWorker worker : workerList) {
-            if (sendTo.equalsIgnoreCase(worker.getLogIn())) {
-                String outMsg = "msg " + login + " " + body;
-                worker.send(outMsg);
-            }
-        }
-
-    }
-
+    // Removes a worker from the Servers worker list, severs connection
     private void UserLogOff() throws IOException {
-        String logOffMsg = "Offline: " + login;
-
-        // Sends a log ogg message to all online users
-        List<ServerWorker> workerList = server.getWorkersList();
-        if(login.charAt(0) == 'S') {
-            for (ServerWorker worker : workerList) {
-                if (isStation(worker)) {
-                    worker.send(logOffMsg);
-                }
-            }
-        }
         System.out.println("Client: " + login + " has logged out");
         server.removeFromWorkersList(this);
         clientSocket.close();
     }
 
+    // Returns current sessions log in
     public String getLogIn()
     {
         return login;
     }
 
+    // Checks if valid station has been attempted to start, starts on accepted validation
     private void handleStationStart(OutputStream outputStream, String[] tokens) throws IOException {
         if(tokens.length == 2)
         {
             String stationName = tokens[1]; // Station name as token 1
             String msg;
 
+            // Check if valid station
             String stationID = tryStationStart(stationName);
 
             if(stationID != null)
             {
-                outputStream.write(("Station "+ stationName +" activated. "+"\n\r").getBytes());
                 System.out.println("Station: "+ stationName +" has been activated.");
                 StationClient stationClient = new StationClient(this, stationID, stationName.toLowerCase());
                 server.addStation(stationClient);
                 stationClient.run();
 
+                // Notify all current users of new online station
                 List<ServerWorker> workerList = server.getWorkersList();
                 for (ServerWorker worker : workerList) {
                     String onlineMessage = "# Station "+stationName+" is now online #";
@@ -305,12 +288,14 @@ public class ServerWorker extends Thread
         }
     }
 
+    // Remvoes station from Server station list, stops station activity
     private void handleStationStop(OutputStream outputStream, String[] tokens) throws IOException {
         if (tokens.length == 2) {
             String stationName = tokens[1]; // Station name as token 1
 
             Boolean success = false;
 
+            // Attempt to stop specified station
             List<StationClient> stationList = server.getStationList();
             for (StationClient station : stationList) {
                 if (station.stationName.equalsIgnoreCase(stationName)) {
@@ -322,9 +307,9 @@ public class ServerWorker extends Thread
             }
 
             if (success) {
-                outputStream.write(("Station " + stationName + " stopped successfully.\n\r").getBytes());
                 System.out.println("Station" + stationName + " has been deactivated. ");
 
+                // Notify all current users of offline station
                 List<ServerWorker> workerList = server.getWorkersList();
                 for (ServerWorker worker : workerList) {
                     if(!isStation(worker)){
@@ -332,12 +317,12 @@ public class ServerWorker extends Thread
                         worker.send(offlineMessage);
                     }
                 }
-
             } else outputStream.write(("Station " + stationName + " was not found.\n\r").getBytes());
 
         }
     }
 
+    // Check database file for specified station, if exists return ID
     private String tryStationStart(String stationName) throws IOException {
         FileReader fileReader = new FileReader("StationData.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -355,6 +340,7 @@ public class ServerWorker extends Thread
         return null;
     }
 
+    // Attempt to login in with given credentials, if valid change login to true
     private void handleLogIn(OutputStream outputStream, String[] tokens) throws IOException {
         if(tokens.length == 3)
         {
@@ -362,6 +348,7 @@ public class ServerWorker extends Thread
             String password = tokens[2]; // Password as token 2
             String msg;
 
+            // Check if valid login attempt
             String loginID = tryLogin(username, password);
 
             if(loginID != null)
@@ -371,8 +358,8 @@ public class ServerWorker extends Thread
                 this.login = loginID;
                 this.publicName = username.toLowerCase();
 
-                // Show current user all online stations
                 System.out.println("Client: " + login + " has logged in");
+                //Show current online stations and users
                 showOnlineStations();
                 showOnlineUsers();
             }
@@ -385,6 +372,7 @@ public class ServerWorker extends Thread
         }
     }
 
+    // Attempt to find user-password in database file, if found return ID
     private String tryLogin(String username, String password) throws IOException { // Handle station logins better ##########
 
         FileReader fileReader = new FileReader("accounts.txt");
@@ -404,6 +392,7 @@ public class ServerWorker extends Thread
         return null;
     }
 
+    // Create a new account of either user or station
     private void createAccount() throws IOException { // Can have multiple of the same username, needs to be checked for unique
     char accountType;
     outputStream.write("Account type: \n1.User \n2.Station \n\nPlease enter a number: ".getBytes());
@@ -425,6 +414,7 @@ public class ServerWorker extends Thread
     String data;
     String ID = getNewID(accountType);
 
+    // Set station data
     if(accountType == 's'){
 
         outputStream.write("Set Station name: \n\r".getBytes());
@@ -438,6 +428,7 @@ public class ServerWorker extends Thread
 
         data = (accountType + ID + "," + stationName + "," + area + "," + crop);
     }
+    // Set user data
     else{
         outputStream.write("Set Username: \n\r".getBytes());
         String username = reader.readLine();
@@ -448,10 +439,9 @@ public class ServerWorker extends Thread
         data = (accountType + ID + "," + username + "," + password);
     }
 
+    // Add data to respective database file
     data = data.toLowerCase();
-
     String fileName = (accountType == 's') ?  "StationData" : "accounts";
-
     FileWriter writer = new FileWriter(fileName+".txt",true);
     writer.write(data);
     writer.write(System.getProperty("line.separator"));
@@ -462,6 +452,7 @@ public class ServerWorker extends Thread
     outputStream.write((creationMsg+"\n\r").getBytes());
 }
 
+    // Check files for the newest ID available
     private String getNewID(char IDType) throws IOException {
         String ID;
         String lastID = "";
@@ -491,26 +482,26 @@ public class ServerWorker extends Thread
         return ID;
     }
 
-    public void send(String msg) throws IOException // Use outputStream to send message to current worker
+    // Write to the output stream of the current session; Used for global messaging
+    public void send(String msg) throws IOException
     {
         if(login != null) {
             outputStream.write((msg + "\n\r").getBytes());
         }
     }
 
-    public String getLogin(){
-        return login;
-    }
-
+    // Check if worker is station
     private boolean isStation(ServerWorker worker) {
         return (!login.equals(worker.getLogIn()));
     }
 
+    // Creates a blank screen for the user
     private void moveScreen() throws IOException {
         String linebreak = "\n".repeat(50);
         outputStream.write(linebreak.getBytes());
     }
 
+    // Displays a list of the current connected stations
     private void showOnlineStations() throws IOException {
         List<StationClient> stationList = server.getStationList();
         outputStream.write("= = = = = Online Stations = = = = =  \n\r".getBytes());
@@ -521,6 +512,7 @@ public class ServerWorker extends Thread
         outputStream.write("= = = = = = = = = = = = = = = = = =  \n\n\r".getBytes());
     }
 
+    // Shows a list of the current online users
     private void showOnlineUsers() throws IOException {
         List<ServerWorker> workerList = server.getWorkersList();
         outputStream.write(" = = = = = Online Users = = = = = =  \n\r".getBytes());
@@ -534,5 +526,4 @@ public class ServerWorker extends Thread
         }
         outputStream.write(" = = = = = = = = = = = = = = = = =  \n\n\r".getBytes());
     }
-
 }

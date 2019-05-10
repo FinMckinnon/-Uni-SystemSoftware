@@ -8,8 +8,8 @@ public class Server extends Thread
 {
     private final int serverPort;
 
-    public ArrayList<ServerWorker> workerList = new ArrayList<>();
-    public ArrayList<StationClient> stationList = new ArrayList<>();
+    public ArrayList<ServerWorker> workerList = new ArrayList<>(); // List of active workers
+    public ArrayList<StationClient> stationList = new ArrayList<>(); // List of active stations
     private Server clientSocket;
 
     public Server(int serverPort)
@@ -22,10 +22,7 @@ public class Server extends Thread
         return workerList;
     }
 
-    public void removeFromWorkersList(ServerWorker workerToRemove) // Remove a specified worker from WorkerList
-    {
-        workerList.remove(workerToRemove);
-    }
+    public void removeFromWorkersList(ServerWorker workerToRemove) { workerList.remove(workerToRemove); }
 
     public List<StationClient> getStationList(){
         return stationList;

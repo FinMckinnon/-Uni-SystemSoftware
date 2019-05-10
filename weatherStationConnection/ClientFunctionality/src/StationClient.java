@@ -19,6 +19,7 @@ public class StationClient extends Thread {
     private StationSensors stationSensors;
     public Boolean active;
 
+    // Initialise values for the current session
     public StationClient(ServerWorker worker, String login, String stationName) {
         this.stationWorker = worker;
         this.login = login;
@@ -36,13 +37,10 @@ public class StationClient extends Thread {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // stationSensors.startMessageReader(); ???????????????????????????????????? Possible delete
     }
 
+    // Update a specified field with a given value
     boolean updateFields(String fieldToUpdate, String value) throws IOException {
-
-        System.out.println("Here"); ////////////////////////////////////////////////////////////////////////////////////
-
         if("area".equalsIgnoreCase(fieldToUpdate)){
             this.landArea = value;
         }
@@ -57,41 +55,35 @@ public class StationClient extends Thread {
             return false;
         }
 
-        String path = System.getProperty("user.dir") + "/";
-
-        File inputFile = new File(path+"StationData.txt");
-        File tempFile = new File(path+"StationDataTemp.txt");
-
+        // Store current file data, excluding updated value
         ArrayList<String> fileData = new ArrayList<>();
-
+        String path = System.getProperty("user.dir") + "/";
+        File inputFile = new File(path+"StationData.txt");
         BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-        //BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
         String currentLine;
-
         while((currentLine = reader.readLine()) != null) {
             if (currentLine.length() > 0) {
                 String[] tokens = StringUtils.split(currentLine, ",");
                 if (!login.equalsIgnoreCase(tokens[0])) {
-                    //writer.write(currentLine + System.getProperty("line.separator"));
                     fileData.add(currentLine);
                 }
             }
         }
 
+        // Overwrite file with updated value
         BufferedWriter clearWriter = new BufferedWriter(new FileWriter(inputFile, false));
         clearWriter.write(login + "," + stationName + "," + landArea + "," + fieldCrop + System.getProperty("line.separator"));
         clearWriter.close();
 
+        // Re-write all other data
         String line;
-
         BufferedWriter writer = new BufferedWriter(new FileWriter(inputFile, true));
         for(int i = 0; i < fileData.size(); i++ ){
             if(i == fileData.size()-1)line = fileData.get(i);
             else line = fileData.get(i) +System.getProperty("line.separator");
             writer.append(line);
         }
-
         writer.close();
         reader.close();
 
@@ -99,8 +91,8 @@ public class StationClient extends Thread {
         return true;
     }
 
+    // Retrieve data of current station from database
     private void pullStationData() throws IOException {
-
         BufferedReader reader = new BufferedReader(new FileReader("StationData.txt"));
 
         String currentLine;
@@ -117,10 +109,12 @@ public class StationClient extends Thread {
         reader.close();
     }
 
+    // Stops station sensor
     public void stopSensor(){
         this.active = false;
     }
 
+    // Pull data from database file and return it as an array
     public ArrayList<String> getDataBrief() throws IOException {
         ArrayList<String> data = new ArrayList<>();
         String fileName = stationName + "_SensorData.txt";
@@ -136,12 +130,12 @@ public class StationClient extends Thread {
         return data;
     }
 
+    // Download specified database file to users downloads folder
     public boolean downloadData(){
         String fileName = stationName + "_SensorData.txt";
         File source = new File(fileName);
 
         if(source.exists()){
-
             String home = System.getProperty("user.home");
             File dest = new File(home+"/Downloads/" + fileName);
 

@@ -70,3 +70,113 @@
 = = = = = = = = = = = = = = = = = = = = S E S S I O N    S T A R T  = = = = = = = = = = = = = = = = = = = = 
 2019/05/10 15:51:32: { Temperature: 11.0C, Pressure: 1022.5hPa, Humidity 74.0% , Wind Speed: 8.0mps }
 
+= = = = = = = = = = = = = = = = = = = = S E S S I O N    S T A R T  = = = = = = = = = = = = = = = = = = = = 
+2019/05/10 16:20:41: { Temperature: 10.9C, Pressure: 1024.16hPa, Humidity 68.05% , Wind Speed: 8.66mps }
+
+2019/05/10 16:21:41: { Temperature: 11.51C, Pressure: 1024.85hPa, Humidity 68.97% , Wind Speed: 8.03mps }
+
+2019/05/10 16:22:41: { Temperature: 12.46C, Pressure: 1024.49hPa, Humidity 68.54% , Wind Speed: 8.32mps }
+
+2019/05/10 16:23:41: { Temperature: 13.01C, Pressure: 1025.0hPa, Humidity 69.09% , Wind Speed: 7.63mps }
+
+2019/05/10 16:24:41: { Temperature: 12.41C, Pressure: 1025.86hPa, Humidity 69.21% , Wind Speed: 6.98mps }
+
+2019/05/10 16:25:41: { Temperature: 13.26C, Pressure: 1025.63hPa, Humidity 68.23% , Wind Speed: 7.31mps }
+
+2019/05/10 16:26:41: { Temperature: 13.71C, Pressure: 1025.2hPa, Humidity 68.97% , Wind Speed: 7.79mps }
+
+2019/05/10 16:27:41: { Temperature: 13.33C, Pressure: 1024.62hPa, Humidity 68.42% , Wind Speed: 7.76mps }
+
+2019/05/10 16:28:41: { Temperature: 13.44C, Pressure: 1024.7hPa, Humidity 69.09% , Wind Speed: 7.25mps }
+
+2019/05/10 16:29:41: { Temperature: 12.55C, Pressure: 1024.77hPa, Humidity 69.44% , Wind Speed: 6.65mps }
+
+2019/05/10 16:30:41: { Temperature: 12.18C, Pressure: 1024.83hPa, Humidity 68.73% , Wind Speed: 7.15mps }
+
+2019/05/10 16:31:41: { Temperature: 11.69C, Pressure: 1025.25hPa, Humidity 69.05% , Wind Speed: 6.2mps }
+
+2019/05/10 16:32:41: { Temperature: 12.46C, Pressure: 1025.46hPa, Humidity 69.44% , Wind Speed: 7.14mps }
+
+2019/05/10 16:33:41: { Temperature: 13.02C, Pressure: 1025.28hPa, Humidity 69.81% , Wind Speed: 6.57mps }
+
+2019/05/10 16:34:41: { Temperature: 12.31C, Pressure: 1024.59hPa, Humidity 69.54% , Wind Speed: 7.13mps }
+
+2019/05/10 16:35:41: { Temperature: 12.67C, Pressure: 1024.29hPa, Humidity 68.61% , Wind Speed: 6.61mps }
+
+2019/05/10 16:36:41: { Temperature: 13.16C, Pressure: 1023.84hPa, Humidity 67.85% , Wind Speed: 6.94mps }
+
+2019/05/10 16:37:41: { Temperature: 13.24C, Pressure: 1024.63hPa, Humidity 67.0% , Wind Speed: 7.35mps }
+
+2019/05/10 16:38:41: { Temperature: 13.46C, Pressure: 1024.32hPa, Humidity 67.51% , Wind Speed: 6.42mps }
+
+2019/05/10 16:39:41: { Temperature: 12.47C, Pressure: 1024.21hPa, Humidity 68.09% , Wind Speed: 5.55mps }
+
+2019/05/10 16:40:41: { Temperature: 12.14C, Pressure: 1024.87hPa, Humidity 67.66% , Wind Speed: 6.36mps }
+
+2019/05/10 16:41:41: { Temperature: 13.06C, Pressure: 1025.49hPa, Humidity 66.94% , Wind Speed: 5.98mps }
+
+2019/05/10 16:42:41: { Temperature: 13.19C, Pressure: 1025.48hPa, Humidity 66.36% , Wind Speed: 6.31mps }
+
+2019/05/10 16:43:41: { Temperature: 13.64C, Pressure: 1025.17hPa, Humidity 65.46% , Wind Speed: 5.98mps }
+
+2019/05/10 16:44:41: { Temperature: 13.02C, Pressure: 1025.3hPa, Humidity 64.58% , Wind Speed: 5.32mps }
+
+2019/05/10 16:45:41: { Temperature: 12.85C, Pressure: 1024.55hPa, Humidity 64.68% , Wind Speed: 5.26mps }
+
+2019/05/10 16:46:41: { Temperature: 12.22C, Pressure: 1024.74hPa, Humidity 64.48% , Wind Speed: 5.66mps }
+
+2019/05/10 16:47:41: { Temperature: 12.43C, Pressure: 1025.55hPa, Humidity 64.5% , Wind Speed: 4.89mps }
+
+= = = = = = = = = = = = = = = = = = = = S E S S I O N    S T A R T  = = = = = = = = = = = = = = = = = = = = 
+2019/05/10 16:48:21: { Temperature: 8.94C, Pressure: 1018.38hPa, Humidity 67.44% , Wind Speed: 10.69mps }
+
+2019/05/10 16:49:21: { Temperature: 9.07C, Pressure: 1018.52hPa, Humidity 67.18% , Wind Speed: 9.79mps }
+
+2019/05/10 16:50:21: { Temperature: 8.33C, Pressure: 1018.64hPa, Humidity 67.51% , Wind Speed: 9.47mps }
+
+2019/05/10 16:51:21: { Temperature: 9.08C, Pressure: 1017.81hPa, Humidity 66.97% , Wind Speed: 9.77mps }
+
+2019/05/10 16:52:21: { Temperature: 8.17C, Pressure: 1018.04hPa, Humidity 67.6% , Wind Speed: 9.94mps }
+
+2019/05/10 16:53:21: { Temperature: 7.34C, Pressure: 1018.95hPa, Humidity 68.5% , Wind Speed: 10.05mps }
+
+2019/05/10 16:54:21: { Temperature: 7.39C, Pressure: 1018.53hPa, Humidity 68.74% , Wind Speed: 10.63mps }
+
+2019/05/10 16:55:21: { Temperature: 6.7C, Pressure: 1017.87hPa, Humidity 68.59% , Wind Speed: 11.22mps }
+
+2019/05/10 16:56:21: { Temperature: 6.21C, Pressure: 1017.8hPa, Humidity 69.57% , Wind Speed: 10.55mps }
+
+2019/05/10 16:57:21: { Temperature: 6.18C, Pressure: 1017.58hPa, Humidity 69.92% , Wind Speed: 10.1mps }
+
+2019/05/10 16:58:21: { Temperature: 6.25C, Pressure: 1017.84hPa, Humidity 69.13% , Wind Speed: 9.6mps }
+
+2019/05/10 16:59:21: { Temperature: 6.14C, Pressure: 1017.8hPa, Humidity 69.82% , Wind Speed: 8.71mps }
+
+2019/05/10 17:00:21: { Temperature: 6.67C, Pressure: 1017.5hPa, Humidity 70.7% , Wind Speed: 8.08mps }
+
+2019/05/10 17:01:21: { Temperature: 7.45C, Pressure: 1017.01hPa, Humidity 70.39% , Wind Speed: 7.42mps }
+
+2019/05/10 17:02:21: { Temperature: 7.85C, Pressure: 1017.04hPa, Humidity 70.39% , Wind Speed: 6.49mps }
+
+2019/05/10 17:03:21: { Temperature: 8.0C, Pressure: 1017.79hPa, Humidity 69.75% , Wind Speed: 5.87mps }
+
+2019/05/10 17:04:21: { Temperature: 7.68C, Pressure: 1017.67hPa, Humidity 69.91% , Wind Speed: 5.34mps }
+
+2019/05/10 17:05:21: { Temperature: 7.96C, Pressure: 1018.53hPa, Humidity 69.63% , Wind Speed: 5.49mps }
+
+2019/05/10 17:06:21: { Temperature: 8.2C, Pressure: 1019.19hPa, Humidity 70.32% , Wind Speed: 5.73mps }
+
+2019/05/10 17:07:21: { Temperature: 9.06C, Pressure: 1018.49hPa, Humidity 69.52% , Wind Speed: 6.41mps }
+
+2019/05/10 17:08:21: { Temperature: 8.35C, Pressure: 1019.17hPa, Humidity 69.79% , Wind Speed: 7.18mps }
+
+2019/05/10 17:09:21: { Temperature: 7.44C, Pressure: 1018.72hPa, Humidity 70.76% , Wind Speed: 6.36mps }
+
+2019/05/10 17:10:21: { Temperature: 7.15C, Pressure: 1018.52hPa, Humidity 71.14% , Wind Speed: 5.73mps }
+
+2019/05/10 17:11:21: { Temperature: 7.05C, Pressure: 1018.15hPa, Humidity 71.26% , Wind Speed: 5.92mps }
+
+2019/05/10 17:12:21: { Temperature: 7.97C, Pressure: 1018.22hPa, Humidity 71.56% , Wind Speed: 5.39mps }
+
+2019/05/10 17:13:21: { Temperature: 8.93C, Pressure: 1018.46hPa, Humidity 70.78% , Wind Speed: 4.59mps }
+

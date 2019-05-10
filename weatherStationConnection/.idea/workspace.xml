@@ -6,9 +6,13 @@
       <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientFunctionality/src/StationClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClientFunctionality/src/StationClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/StationData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/StationData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientFunctionality/src/StationSensors.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClientFunctionality/src/StationSensors.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientFunctionality/src/mainApplicaiton.java" beforeDir="false" afterPath="$PROJECT_DIR$/ClientFunctionality/src/mainApplicaiton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemServer/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/SystemServer/src/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SystemServer/src/ServerWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/SystemServer/src/ServerWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ClientFunctionality/StationClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientFunctionality/StationClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SystemServer/src/serverMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/SystemServer/src/serverMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ClientFunctionality/StationSensors.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ClientFunctionality/StationSensors.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stationtest_SensorData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/stationtest_SensorData.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SystemServer/src/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+            <state relative-caret-position="383">
+              <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -37,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SystemServer/src/serverMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+            <state relative-caret-position="34">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -46,17 +50,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SystemServer/src/ServerWorker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="303" column="13" lean-forward="true" selection-start-line="303" selection-start-column="13" selection-end-line="303" selection-end-column="13" />
+            <state relative-caret-position="420">
+              <caret line="527" column="5" selection-start-line="527" selection-start-column="5" selection-end-line="527" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ClientFunctionality/src/StationClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="1434">
+              <caret line="150" column="21" lean-forward="true" selection-start-line="150" selection-start-column="21" selection-end-line="150" selection-end-column="21" />
               <folding>
                 <element signature="e#4046#4047#0" expanded="true" />
                 <element signature="e#4081#4082#0" expanded="true" />
@@ -68,8 +72,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ClientFunctionality/src/mainApplicaiton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="87" selection-start-line="5" selection-start-column="87" selection-end-line="5" selection-end-column="87" />
+            <state relative-caret-position="68">
+              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -77,8 +81,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ClientFunctionality/src/StationSensors.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="707">
-              <caret line="61" column="31" lean-forward="true" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
+            <state relative-caret-position="213">
+              <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3337#3338#0" expanded="true" />
+                <element signature="e#3417#3418#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,8 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>stationst</find>
-      <find>getdata</find>
       <find>window</find>
       <find>wind</find>
       <find>isStation</find>
@@ -124,14 +131,16 @@
       <find>sep</find>
       <find>rename</find>
       <find>info</find>
-      <find>writeDataToFile</find>
       <find>handleInfo</find>
       <find>handleUpdate</find>
-      <find>area</find>
       <find>handleRefresh</find>
       <find>handleDownload</find>
       <find>success</find>
       <find>handleStationStart</find>
+      <find>writeDataToFile</find>
+      <find>station</find>
+      <find>recordResults</find>
+      <find>area</find>
       <find>tryStationStart</find>
     </findStrings>
     <replaceStrings>
@@ -152,24 +161,25 @@
         <option value="$PROJECT_DIR$/ClientFunctionality/src/UserClient.java" />
         <option value="$PROJECT_DIR$/ClientFunctionality/src/StationSensor.java" />
         <option value="$PROJECT_DIR$/notes" />
-        <option value="$PROJECT_DIR$/SystemServer/src/serverMain.java" />
         <option value="$PROJECT_DIR$/SystemServer/src/loginWindow.form" />
         <option value="$PROJECT_DIR$/SystemServer/src/loginWindow.java" />
         <option value="$PROJECT_DIR$/SystemServer/src/WeatherStationWindow.form" />
         <option value="$PROJECT_DIR$/SystemServer/src/WeatherStationWindow.java" />
-        <option value="$PROJECT_DIR$/SystemServer/src/Server.java" />
         <option value="$PROJECT_DIR$/SystemServer/src/SyncPipe.java" />
         <option value="$PROJECT_DIR$/SystemServer/src/SyncPipe/SyncPipe.java" />
         <option value="$PROJECT_DIR$/ClientFunctionality/src/SyncPipe.java" />
         <option value="$PROJECT_DIR$/ClientFunctionality/src/cmd_prompt/mainApplicaiton.java" />
-        <option value="$PROJECT_DIR$/ClientFunctionality/src/mainApplicaiton.java" />
+        <option value="$PROJECT_DIR$/ClientFunctionality/src/testing.java" />
         <option value="$PROJECT_DIR$/ClientFunctionality/src/StationSensors.java" />
-        <option value="$PROJECT_DIR$/SystemServer/src/ServerWorker.java" />
+        <option value="$PROJECT_DIR$/ClientFunctionality/src/mainApplicaiton.java" />
         <option value="$PROJECT_DIR$/ClientFunctionality/src/StationClient.java" />
+        <option value="$PROJECT_DIR$/SystemServer/src/ServerWorker.java" />
+        <option value="$PROJECT_DIR$/SystemServer/src/serverMain.java" />
+        <option value="$PROJECT_DIR$/SystemServer/src/Server.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="775" />
@@ -220,7 +230,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557499956425" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557504887272" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/ClientFunctionality/src" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
@@ -252,13 +262,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StationSensors" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="StationSensors" />
-      <module name="ClientFunctionality" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="loginWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="loginWindow" />
       <module name="SystemServer" />
@@ -280,13 +283,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="testing" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testing" />
+      <module name="ClientFunctionality" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.mainApplicaiton" />
         <item itemvalue="Application.serverMain" />
+        <item itemvalue="Application.testing" />
         <item itemvalue="Application.ServerWorker" />
         <item itemvalue="Application.loginWindow" />
-        <item itemvalue="Application.StationSensors" />
       </list>
     </recent_temporary>
   </component>
@@ -305,7 +315,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49902153" visible="true" weight="0.19818456" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -316,8 +325,8 @@
       <window_info id="Learn" order="6" />
       <window_info id="Favorites" order="7" sideWeight="0.50097847" side_tool="true" weight="0.19515885" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21505377" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32872504" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.15975423" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.2857143" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -339,18 +348,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Cleaned up and added help page so my team can understand functions more. &#10;Changed Sensor data upload to 1 minute intervals." />
     <option name="LAST_COMMIT_MESSAGE" value="Cleaned up and added help page so my team can understand functions more. &#10;Changed Sensor data upload to 1 minute intervals." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/SystemServer/src/ServerWorker.java</url>
-          <line>279</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/server.java" />
@@ -392,51 +389,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ClientFunctionality/src/testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-16">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ClientFunctionality/src/StationSensors.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="707">
-          <caret line="61" column="31" lean-forward="true" selection-start-line="61" selection-start-column="31" selection-end-line="61" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SystemServer/src/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+        <state relative-caret-position="213">
+          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3337#3338#0" expanded="true" />
+            <element signature="e#3417#3418#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SystemServer/src/serverMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SystemServer/src/ServerWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="303" column="13" lean-forward="true" selection-start-line="303" selection-start-column="13" selection-end-line="303" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ClientFunctionality/src/mainApplicaiton.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="87" selection-start-line="5" selection-start-column="87" selection-end-line="5" selection-end-column="87" />
+        <state relative-caret-position="68">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ClientFunctionality/src/StationClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="93" lean-forward="true" selection-start-line="93" selection-end-line="93" />
+        <state relative-caret-position="1434">
+          <caret line="150" column="21" lean-forward="true" selection-start-line="150" selection-start-column="21" selection-end-line="150" selection-end-column="21" />
           <folding>
             <element signature="e#4046#4047#0" expanded="true" />
             <element signature="e#4081#4082#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SystemServer/src/ServerWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="527" column="5" selection-start-line="527" selection-start-column="5" selection-end-line="527" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SystemServer/src/serverMain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SystemServer/src/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
